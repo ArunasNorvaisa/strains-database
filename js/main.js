@@ -1,12 +1,15 @@
 $(document).ready(function() {
+    // išvalome paieškos lauką prieš kiekvieną paiešką:
     $('input#searchWeed').val('');
     var results;
     $('input#searchWeed').keyup(function(e) {
-        if (this.value.length < 3) return;
+        if (this.value.length < 3) return; //grąžiname rezultatus tik jei įvestos 3 raidės ar daugiau
         let weedName = e.target.value;
+        // prasideda linksmybės :)
         $.ajax({
             url: 'http://strainapi.evanbusse.com/Q1tPKQw/strains/search/name/' + weedName
         }).done(function(weeds) {
+            // Kuriame rezultatų masyvą, kad optimizuot paiešką
             results = [];
             $.each(weeds, function(index, weed) {
                 results.push({
@@ -16,11 +19,13 @@ $(document).ready(function() {
                     'desc': weed.desc
                 });
             });
-            printResults(results);
+            printResults(results); // išvedame pradinius rezultatus
+            // rezultatų filtravimas:
             $('body').on('click', "#filter", function(e) {
                 e.preventDefault();
                 filterResults(results);
             });
+            // filtro numetimas:
             $('body').on('click', "#clear", function(e) {
                 e.preventDefault();
                 printResults(results);
