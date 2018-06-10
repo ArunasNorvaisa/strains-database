@@ -1,16 +1,21 @@
 body, html {
     width: 100%;
-    background-color: #fff;
+    background-color: #ddd;
     padding: 0;
     margin: 0;
 }
 
 #head {
+    border-radius: 19px;
     background: url(http://arunas.org/database/images/kanape.jpg);
     width: 100%;
     height: 23vh;
     background-repeat: no-repeat;
     background-size: auto;
-    background-position: center;
-    margin: 20px;
+    background-position: bottom;
+    margin: 1vw;
+}
+
+label {
+    font-size: 1.1em;
 }
