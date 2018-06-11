@@ -20,13 +20,18 @@ $(document).ready(function() {
                 });
             });
             printResults(results); // išvedame pradinius rezultatus
-            // rezultatų filtravimas:
-            $('body').on('click', "#filter", function(e) {
+            // rezultatų filtravimas, paspaudus filtravimo mygtuką:
+            $('#filter').click(function(e) {
+                e.preventDefault();
+                filterResults(results);
+            });
+            // rezultatų filtravimas, pakeitus rūšes pasirinkimą:
+            $('#raceSelection').change(function(e) {
                 e.preventDefault();
                 filterResults(results);
             });
             // filtro numetimas:
-            $('body').on('click', "#clear", function(e) {
+            $('#clear').click(function(e) {
                 e.preventDefault();
                 printResults(results);
             });
